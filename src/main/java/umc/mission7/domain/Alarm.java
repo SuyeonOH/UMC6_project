@@ -2,7 +2,9 @@ package umc.mission7.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.mission7.domain.common.BaseEntity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,16 +13,16 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Store {
+public class Alarm extends BaseEntity {
 
     @Id
     private String id;
 
-    private String store;
+    private String isConfirmed;
 
-    private String information;
+    private LocalDate createdAt;
 
-    private String point;
+    private LocalDate updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

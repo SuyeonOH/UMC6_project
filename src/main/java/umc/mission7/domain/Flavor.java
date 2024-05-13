@@ -3,6 +3,7 @@ package umc.mission7.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,16 +12,12 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Store {
+public class Flavor {
 
     @Id
     private String id;
 
-    private String store;
-
-    private String information;
-
-    private String point;
+    private String food;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

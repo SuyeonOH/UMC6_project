@@ -2,8 +2,7 @@ package umc.mission7.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
+import umc.mission7.domain.common.BaseEntity;
 
 @Entity
 @Getter
@@ -11,18 +10,18 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Store {
+public class Ask extends BaseEntity {
 
     @Id
     private String id;
 
-    private String store;
-
-    private String information;
-
-    private String point;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Member member;
+
+    private String title;
+
+    private String description;
+
+    private String photo;
 }

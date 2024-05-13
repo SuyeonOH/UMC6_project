@@ -1,24 +1,37 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Setter
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 public class Review extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String title;
 
-    private Float score;
+    private String description;
+
+    private String photo;
+
+    private String rating;
+
+    @ManyToOne
+    @JoinColumn(name = "mission_id")
+    private Mission mission;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "alarm_id")
+    private Alarm alarm;
 }

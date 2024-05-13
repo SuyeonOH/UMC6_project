@@ -3,36 +3,33 @@ package umc.mission7.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
-import umc.mission7.domain.enums.Gender;
-import umc.mission7.domain.enums.MemberStatus;
-import umc.mission7.domain.enums.SocialType;
-import umc.mission7.domain.enums.mapping.MemberMission;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
-public class Mission extends BaseEntity {
+public class Mission extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private Integer reward;
+    private String received;
 
-    private LocalDate deadline;
+    private String ongoing;
 
-    private String missionSpec;
+    private String complete;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    private String review;
+
+    @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissionList = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "alarm_id")
+    private Alarm alarm;
 }
