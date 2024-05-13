@@ -18,10 +18,8 @@ public class Mission extends BaseEntity{
     private String id;
 
     private String received;
-
-    private String ongoing;
-
     private String complete;
+    private String ongoing;
 
     private String review;
 
