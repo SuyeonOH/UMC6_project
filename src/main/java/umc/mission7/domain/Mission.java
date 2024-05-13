@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Mission extends BaseEntity{
+public class Mission extends BaseEntity {
 
     @Id
     private String id;
@@ -20,14 +20,13 @@ public class Mission extends BaseEntity{
     private String complete;
     private String ongoing;
     private String received;
-
     private String review;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "alarm_id")
     private Alarm alarm;
 }

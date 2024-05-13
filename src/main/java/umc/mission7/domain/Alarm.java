@@ -24,7 +24,7 @@ public class Alarm extends BaseEntity {
 
     private LocalDate updatedAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Member member;
 }
