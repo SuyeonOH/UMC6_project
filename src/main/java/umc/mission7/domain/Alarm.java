@@ -20,9 +20,9 @@ public class Alarm extends BaseEntity {
 
     private String isConfirmed;
 
-    private LocalDate createdAt;
+//    private LocalDate createdAt;
 
-    private LocalDate updatedAt;
+//    private LocalDate updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
