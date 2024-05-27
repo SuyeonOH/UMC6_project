@@ -1,17 +1,19 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import umc.mission7.domain.Review;
 import umc.mission7.domain.common.BaseEntity;
 import umc.mission7.domain.enums.Gender;
-import umc.mission7.domain.enums.MemberStatus;
 import umc.mission7.domain.enums.SocialType;
-import umc.mission7.domain.enums.mapping.MemberAgree;
-import umc.mission7.domain.enums.mapping.MemberMission;
+import umc.mission7.domain.enums.MemberStatus;
+import umc.mission7.domain.mapping.MemberAgree;
+import umc.mission7.domain.mapping.MemberMission;
+import umc.mission7.domain.mapping.MemberPrefer;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import java.util.List;
 public class Member extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, length = 20)

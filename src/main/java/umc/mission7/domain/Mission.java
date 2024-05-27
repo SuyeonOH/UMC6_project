@@ -1,10 +1,10 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
-import umc.mission7.domain.enums.mapping.MemberMission;
+import umc.mission7.domain.mapping.MemberMission;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

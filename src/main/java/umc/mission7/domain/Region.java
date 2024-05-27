@@ -1,9 +1,9 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

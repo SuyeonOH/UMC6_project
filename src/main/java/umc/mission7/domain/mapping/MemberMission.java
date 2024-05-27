@@ -1,9 +1,12 @@
-package umc.mission7.domain.enums.mapping;
+package umc.mission7.domain.mapping;
 
-import jakarta.persistence.*;
 import lombok.*;
+import umc.mission7.domain.Member;
+import umc.mission7.domain.Mission;
 import umc.mission7.domain.common.BaseEntity;
 import umc.mission7.domain.enums.MissionStatus;
+
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -18,4 +21,12 @@ public class MemberMission extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private MissionStatus status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mission_id")
+    private Mission mission;
 }

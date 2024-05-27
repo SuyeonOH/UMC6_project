@@ -14,9 +14,9 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI UMCstudyAPI() {
-        ProcessHandle.Info info = new Info()
-                .title("UMC Server WorkBook API")
-                .description("UMC Server WorkBook API 명세서")
+        Info info = new Info()
+                .title("UmcStudy9 두두 API")
+                .description("UmcStudy9 두두 API 명세서")
                 .version("1.0.0");
 
         String jwtSchemeName = "JWT TOKEN";

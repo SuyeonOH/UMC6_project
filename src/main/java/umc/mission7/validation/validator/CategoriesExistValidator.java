@@ -1,13 +1,13 @@
 package umc.mission7.validation.validator;
 
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.mission7.apiPayload.code.status.ErrorStatus;
 import umc.mission7.repository.FoodCategoryRepository;
 import umc.mission7.validation.annotation.ExistCategories;
 
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
 @Component

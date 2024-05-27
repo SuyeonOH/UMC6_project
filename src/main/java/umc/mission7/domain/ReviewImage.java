@@ -1,9 +1,9 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import umc.mission7.domain.common.BaseEntity;
+
+import javax.persistence.*;
 
 @Entity
 @Getter

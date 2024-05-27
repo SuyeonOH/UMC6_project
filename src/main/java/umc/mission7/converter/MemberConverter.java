@@ -1,9 +1,9 @@
 package umc.mission7.converter;
 
 import umc.mission7.domain.Member;
+import umc.mission7.domain.enums.Gender;
 import umc.mission7.web.dto.MemberRequestDTO;
 import umc.mission7.web.dto.MemberResponseDTO;
-import umc.mission7.domain.enums.Gender;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,24 +1,25 @@
-package umc.mission7.service;
+package umc.mission7.service.MemberService;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import umc.mission7.apiPayload.code.status.ErrorStatus;
 import umc.mission7.apiPayload.exception.handler.FoodCategoryHandler;
 import umc.mission7.converter.MemberConverter;
 import umc.mission7.converter.MemberPreferConverter;
 import umc.mission7.domain.FoodCategory;
 import umc.mission7.domain.Member;
-import umc.mission7.web.dto.MemberRequestDTO;
-import umc.mission7.domain.enums.mapping.MemberPrefer;
+import umc.mission7.domain.mapping.MemberPrefer;
 import umc.mission7.repository.FoodCategoryRepository;
 import umc.mission7.repository.MemberRepository;
+import umc.mission7.web.dto.MemberRequestDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-//@Transactional(readOnly = true)
+@Transactional(readOnly = true)
 public class MemberCommandServiceImpl implements MemberCommandService{
 
     private final MemberRepository memberRepository;

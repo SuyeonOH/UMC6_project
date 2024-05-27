@@ -1,7 +1,7 @@
 package umc.mission7.converter;
 
 import umc.mission7.domain.FoodCategory;
-import umc.mission7.domain.enums.mapping.MemberPrefer;
+import umc.mission7.domain.mapping.MemberPrefer;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,4 +18,3 @@ public class MemberPreferConverter {
                 ).collect(Collectors.toList());
     }
 }
-

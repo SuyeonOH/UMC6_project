@@ -3,10 +3,8 @@ package umc.mission7.apiPayload.code.status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import umc.mission7.apiPayload.code.BaseCode;
 import umc.mission7.apiPayload.code.BaseErrorCode;
 import umc.mission7.apiPayload.code.ErrorReasonDTO;
-import umc.mission7.apiPayload.code.ReasonDTO;
 
 @Getter
 @AllArgsConstructor
