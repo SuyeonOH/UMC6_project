@@ -26,9 +26,9 @@ public class Member extends BaseEntity{
 
     private String address;
 
-    private LocalDate createdAt;
+//    private LocalDate createdAt;
 
-    private LocalDate updatedAt;
+//    private LocalDate updatedAt;
 
     private String status;
 

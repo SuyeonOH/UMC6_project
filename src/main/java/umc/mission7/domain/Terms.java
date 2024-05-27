@@ -25,6 +25,6 @@ public class Terms extends BaseEntity {
 
     private Boolean optional;
 
-    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
-    private List<MemberAgree> memberAgreeList = new ArrayList<>();
+//    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+//    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }
