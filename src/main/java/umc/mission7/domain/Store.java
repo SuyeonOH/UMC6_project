@@ -2,27 +2,32 @@ package umc.mission7.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.mission7.domain.common.BaseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Store {
+public class Store extends BaseEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String store;
+    private String name;
 
-    private String information;
+    private String address;
 
-    private String point;
+    private Float score;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Mission> missionList = new ArrayList<>();
 }

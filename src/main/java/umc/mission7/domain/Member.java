@@ -2,51 +2,70 @@ package umc.mission7.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.mission7.domain.common.BaseEntity;
+import umc.mission7.domain.enums.Gender;
+import umc.mission7.domain.enums.MemberStatus;
+import umc.mission7.domain.enums.SocialType;
+import umc.mission7.domain.enums.mapping.MemberAgree;
+import umc.mission7.domain.enums.mapping.MemberMission;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
+@DynamicUpdate
+@DynamicInsert
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(nullable = false, length = 20)
     private String name;
 
-    private String gender;
-
-    private LocalDate birthdate;
-
+    @Column(nullable = false, length = 40)
     private String address;
 
-    private LocalDate createdAt;
+    @Column(nullable = false, length = 40)
+    private String specAddress;
 
-    private LocalDate updatedAt;
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(10)")
+    private Gender gender;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
+    private MemberStatus status;
 
     private LocalDate inactiveDate;
 
-    private String specAddress;
+    //    @Column(nullable = false, length = 50)
+    private String email;
 
-    private String socialType;
+    @ColumnDefault("0")
+    private Integer point;
 
-    @OneToMany(mappedBy = "member")
-    private List<Flavor> flavors;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
-    private List<Store> stores;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<MemberPrefer> memberPreferList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
-    private List<Alarm> alarms;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
-    private List<Ask> asks;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<MemberMission> memberMissionList = new ArrayList<>();
 }
