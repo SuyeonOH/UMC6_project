@@ -1,10 +1,11 @@
-package umc.mission7.domain.enums.mapping;
+package umc.mission7.domain.mapping;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.Member;
 import umc.mission7.domain.Terms;
 import umc.mission7.domain.common.BaseEntity;
+
+import javax.persistence.*;
 
 @Entity
 @Getter

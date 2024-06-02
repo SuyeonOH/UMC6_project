@@ -1,21 +1,24 @@
-package umc.mission7.domain.enums.mapping;
+package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
-import umc.mission7.domain.enums.MissionStatus;
+
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class MemberMission extends BaseEntity {
+public class ReviewImage extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private MissionStatus status;
+    private String imageUrl;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "review_id")
+    private Review review;
 }

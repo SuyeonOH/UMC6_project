@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import umc.mission7.apiPayload.code.BaseCode;
 import umc.mission7.apiPayload.code.ReasonDTO;
 
-
 @Getter
 @AllArgsConstructor
 public enum SuccessStatus implements BaseCode {
@@ -38,6 +37,7 @@ public enum SuccessStatus implements BaseCode {
                 .code(code)
                 .isSuccess(true)
                 .httpStatus(httpStatus)
-                .build();
+                .build()
+                ;
     }
 }

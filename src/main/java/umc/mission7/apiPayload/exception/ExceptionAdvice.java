@@ -1,8 +1,6 @@
 package umc.mission7.apiPayload.exception;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +15,9 @@ import umc.mission7.apiPayload.ApiResponse;
 import umc.mission7.apiPayload.code.ErrorReasonDTO;
 import umc.mission7.apiPayload.code.status.ErrorStatus;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolationException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ import java.util.Optional;
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
 
-    @org.springframework.web.bind.annotation.ExceptionHandler
+    @ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
         String errorMessage = e.getConstraintViolations().stream()
                 .map(constraintViolation -> constraintViolation.getMessage())
@@ -52,7 +53,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
         return handleExceptionInternalArgs(e,HttpHeaders.EMPTY,ErrorStatus.valueOf("_BAD_REQUEST"),request,errors);
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler
+    @ExceptionHandler
     public ResponseEntity<Object> exception(Exception e, WebRequest request) {
         e.printStackTrace();
 

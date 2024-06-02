@@ -1,10 +1,10 @@
 package umc.mission7.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.mission7.domain.common.BaseEntity;
-import umc.mission7.domain.enums.mapping.MemberAgree;
+import umc.mission7.domain.mapping.MemberAgree;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +25,6 @@ public class Terms extends BaseEntity {
 
     private Boolean optional;
 
-//    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
-//    private List<MemberAgree> memberAgreeList = new ArrayList<>();
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }
