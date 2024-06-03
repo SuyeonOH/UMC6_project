@@ -31,7 +31,7 @@ public class StoreRestController {
     private final StoreCommandService storeCommandService;
     private final StoreQueryService storeQueryService;
     @PostMapping("/{storeId}/reviews")
-    public ApiResponse<StoreResponseDTO.CreateReviewResultDTO> createReview(@RequestBody @Valid StoreRequestDTO.ReveiwDTO request,
+    public ApiResponse<StoreResponseDTO.CreateReviewResultDTO> createReview(@RequestBody @Valid StoreRequestDTO.ReviewDTO request,
                                                                             @ExistStore @PathVariable(name = "storeId") Long storeId,
                                                                             @ExistMember @RequestParam(name = "memberId") Long memberId){
         Review review = storeCommandService.createReview(memberId, storeId, request);
