@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class StoreConverter {
 
-    public static Review toReview(StoreRequestDTO.ReveiwDTO request){
+    public static Review toReview(StoreRequestDTO.ReviewDTO request){
         return Review.builder()
                 .title(request.getTitle())
                 .score(request.getScore())

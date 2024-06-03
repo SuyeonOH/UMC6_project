@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class StoreQueryServiceImpl implements StoreQueryService{
+public class StoreQueryServiceImpl implements StoreQueryService {
 
     private final StoreRepository storeRepository;
     private final ReviewRepository reviewRepository;
@@ -26,11 +26,13 @@ public class StoreQueryServiceImpl implements StoreQueryService{
     }
 
     @Override
-    public Page<Review> getReviewList(Long StoreId, Integer page){
-        Store store=storeRepository.findById(StoreId).get();
+    public Page<Review> getReviewList(Long storeId, Integer page) {
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> new IllegalArgumentException("Store not found"));
+        return reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+    }
 
-        Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
-
-        return StorePage;
+    @Override
+    public Page<Review> getUserReviewList(Long memberId, Integer page) {
+        return reviewRepository.findAllByMemberId(memberId, PageRequest.of(page, 10));
     }
 }

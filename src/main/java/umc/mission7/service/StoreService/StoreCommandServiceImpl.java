@@ -22,7 +22,7 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final StoreRepository storeRepository;
 
     @Override
-    public Review createReview(Long memberId, Long storeId, StoreRequestDTO.ReveiwDTO request) {
+    public Review createReview(Long memberId, Long storeId, StoreRequestDTO.ReviewDTO request) {
 
         Review review = StoreConverter.toReview(request);
 

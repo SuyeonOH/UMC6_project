@@ -5,5 +5,5 @@ import umc.mission7.web.dto.StoreRequestDTO;
 
 public interface StoreCommandService {
 
-    Review createReview(Long memberId, Long storeId, StoreRequestDTO.ReveiwDTO request);
+    Review createReview(Long memberId, Long storeId, StoreRequestDTO.ReviewDTO request);
 }
